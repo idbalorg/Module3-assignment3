@@ -10,17 +10,17 @@ function instagramPost (handleOfAuthor, content, imageLink, numOfViews, numOfLik
     this.handleOfAuthor = handleOfAuthor;
     this.content = content;
     this.imageLink = imageLink;
-    this.numOfViews = numOfViews;
-    this.numOfLikes = numOfLikes;
+    this.numOfViews = numOfViews +' views';
+    this.numOfLikes = numOfLikes +' likes';
 
 }
 // (Q2)    Create 2 Instagram post objects from the constructor function you created above
 
-const solatTelecoms = new instagramPost("@solattelecoms", "Prize presentation", "https://www.instagram.com/p/Co9suGQIOnC/?hl=en", 17, 150);
-console.log(solatTelecoms);
+const solatTelecoms = new instagramPost("@solattelecoms", "Prize presentation", "https://www.instagram.com/p/Co9suGQIOnC/?hl=en", 17 , 150 );
+console.log({solatTelecoms});
 
 const channelsTelevision = new instagramPost('@channelstelevision', 'News', 'https://www.instagram.com/p/CUpMH4tqS2KXzpc91Cy8r_YyihzJpAYcpj9s_Q0/?hl=en', 3338, 3679 );
-console.log(channelsTelevision);
+console.log({channelsTelevision});
 
 // (Q3)    
 // Musa Dawodu is a 19 years old Nigerian male who lives with his parents in Lekki, Lagos State. Recently, he wrote the JAMB exam and had the following scores in his combination:
@@ -32,16 +32,16 @@ console.log(channelsTelevision);
 // (Q3.a)  
 // Using the factory method, implement a createPerson() factory function that takes name, age and location as arguments. Afterwards, create an object representing Musa from the factory function. 
 
-function createPersonal (name, age, location){
+function createPerson (name, age, location){
     return{
         candidateName : name,
-        candidateAge : age,
-        candidateLocation : location
+        candidateAge : age +" years",
+        candidateLocation : location,
     }
 }
 
-const Musa = new createPersonal("Musa Dawodu", 19 +" years", "Lekki, Lagos state")
-console.log(Musa);
+const Musa = new createPerson("Musa Dawodu", 19 , "Lekki, Lagos state")
+console.log({Musa});
 
 // (Q3.b.i)
 // Also, implement a factory function createJambScores() that takes eng, govt, lit, crk as arguments. Then create an object representing Muse’s JAMB scores. Add the object as a property to Musa object you created above in (a) above
@@ -61,11 +61,11 @@ console.log({MusaJambScore});
 
 // (Q3.b.ii)
 Object.assign(Musa, MusaJambScore);
-console.log(Musa);
+console.log({Musa});
 
 // object.assign method
 Object.assign(Musa, MusaJambScore);
-console.log(Musa);
+console.log({Musa});
 
 // using spread operator
 
@@ -74,6 +74,8 @@ console.log({MusaDetails});
 
 // (Q5)As Nigeria goes to the polls, here is an object representing some of the Presidential Candidates:
 
+// Using any of the enumeration methods taught in class (for…in  or for..of), log out each of the presidential candidates in this format:
+//’Omoyele Sowore is the presidential candidate of AAC’
 
 
 const presidentialCandidates = {
@@ -90,3 +92,4 @@ for (const party in presidentialCandidates) {
     console.log(candidateName + " is the presidential candidate of " + party );
     
 }
+
